@@ -15,17 +15,13 @@
                     <label for="inputNanme4" class="form-label">libelle</label>
                     <input type="text" name="libelle" class="form-control">
                 </div>
+
                 <div class="col-lg-6 col-md-12 mb-3">
                     <label for="inputAddress" class="form-label">Image d'illustration</label>
                     <input type="file" name="image" class="form-control">
                 </div>
 
-                <div class="col-lg-6 col-md-12 mb-3">
-                    <label for="inputNanme4" class="form-label">Titre de la politique</label>
-                    <input type="text" name="politique" class="form-control">
-                </div>
-
-                <div class="col-lg-6 col-md-12 mb-3">
+                <div class="col-lg-12 col-md-12 mb-3">
                     <label for="inputAddress" class="form-label">Image cartographie</label>
                     <input type="file" name="carte" class="form-control">
                 </div>

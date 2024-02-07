@@ -44,12 +44,26 @@ Route::get('dashboard_backend', [PageController::class, 'dashboard'])->name('das
 
 Route::resource('gestion_domaines', DomaineController::class);
 Route::get('detailDomaine/{id}', [PageController::class, 'findDomaine']);
+Route::get('supprimer_domaine/{id}', [DomaineController::class, 'destroy']);
 
 Route::resource('gestion_Sous_domaines', SousDomaineController::class);
+
 Route::get('detailSousDomaine/{id}', [PageController::class, 'findSousDomaine']);
+
+Route::get('image_Sous_Domaine/{id}', [PageController::class, 'imageSousDomaine']);
+
+Route::get('projet_Sous_Domaine/{id}', [PageController::class, 'projetSousDomaine']);
+
+Route::get('realisation_Sous_Domaine/{id}', [PageController::class, 'realisationSousDomaine']);
 
 Route::resource('gestion_rapport', RapportController::class);
 
 Route::resource('gestion_mediatheques', MediathequeController::class);
 
 Route::resource('gestion_des_images', ImageController::class);
+
+Route::get("/link", function () {
+    $targetFolder = storage_path("app/public");
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
+    symlink($targetFolder, $linkFolder);
+});

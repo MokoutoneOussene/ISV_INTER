@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('libelle')->nullable();
             $table->string('image');
-            $table->string('politique')->nullable();
             $table->string('carte');
             $table->longText('contenu')->nullable();
             $table->timestamps();

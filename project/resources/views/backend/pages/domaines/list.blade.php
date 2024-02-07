@@ -31,7 +31,7 @@
                                         <td>
                                             <img src="{{ asset('storage') . '/' . $list->image }}" alt="Profile" class="img-fluid" style="width: 100px;">
                                         </td>
-                                        <td><a class="btn btn-success" href=""><i class="bi bi-eye"></i></a></td>
+                                        <td><a class="btn btn-success" href="{{ route ('gestion_domaines.show', [$list->id]) }}"><i class="bi bi-eye"></i></a></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button class="btn dropdown-toggle w-100" type="button"
@@ -41,10 +41,10 @@
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     <li>
-                                                        <a class="dropdown-item" href="">Editer</a>
+                                                        <a class="dropdown-item" href="{{ route ('gestion_domaines.edit', [$list->id]) }}">Editer</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="">Supprimer</a>
+                                                        <a class="dropdown-item" href="{{ url ('supprimer_domaine/' .$list->id) }}">Supprimer</a>
                                                     </li>
                                                 </ul>
                                             </div>

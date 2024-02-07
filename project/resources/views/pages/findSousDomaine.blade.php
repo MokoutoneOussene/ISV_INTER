@@ -7,9 +7,9 @@
 
             <div class="section-header d-flex justify-content-between align-items-center mb-5">
                 <h2>{{ $finds->libelle }}</h2>
-                <div><a href="#" class="more">Réalisation obtenus</a></div>
-                <div><a href="#" class="more">Album photo</a></div>
-                <div><a href="#" class="more">Projet en cours</a></div>
+                <div><a href="{{ url ('realisation_Sous_Domaine/' .$finds->id) }}" class="more">Réalisation obtenus</a></div>
+                <div><a href="{{ url ('image_Sous_Domaine/' .$finds->id) }}" class="more">Album photo</a></div>
+                <div><a href="{{ url ('projet_Sous_Domaine/' .$finds->id) }}" class="more">Projet en cours</a></div>
             </div>
 
             <div class="row">

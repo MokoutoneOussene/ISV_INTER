@@ -33,7 +33,6 @@ class DomaineController extends Controller
         Domaine::create([
             'libelle' => $request->libelle,
             'image' => $request->image->store('images', 'public'),
-            'politique' => $request->politique,
             'contenu' => $request->contenu,
             'carte' => $request->carte->store('images', 'public'),
         ]);
@@ -46,7 +45,8 @@ class DomaineController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $finds = Domaine::find($id);
+        return view('backend.pages.domaines.detail', compact('finds'));
     }
 
     /**
@@ -54,7 +54,8 @@ class DomaineController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $finds = Domaine::find($id);
+        return view('backend.pages.domaines.edit', compact('finds'));
     }
 
     /**
@@ -62,7 +63,14 @@ class DomaineController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $domaines = Domaine::find($id);
+        $domaines->update([
+            'libelle' => $request->libelle,
+            'image' => $request->image->store('images', 'public'),
+            'contenu' => $request->contenu,
+            'carte' => $request->carte->store('images', 'public'),
+        ]);
+        return redirect()->route('gestion_domaines.index')->with('status', 'Domaines modifié avec succès!');
     }
 
     /**
@@ -70,6 +78,9 @@ class DomaineController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $domaines = Domaine::find($id);
+        $domaines->delete();
+
+        return redirect()->route('gestion_domaines.index');
     }
 }

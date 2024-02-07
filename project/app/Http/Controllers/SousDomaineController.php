@@ -38,7 +38,6 @@ class SousDomaineController extends Controller
             'domaines_id' => $request->domaines_id,
             'contenu' => $request->contenu,
         ]);
-
         return redirect()->route('gestion_Sous_domaines.index')->with('status', 'Sous domaines ajouté avec succès!');
     }
 
@@ -47,7 +46,8 @@ class SousDomaineController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $finds = SousDomaine::find($id);
+        return view('backend.pages.sousDomaine.detail', compact('finds'));
     }
 
     /**

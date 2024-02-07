@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Domaine;
 use App\Models\ImageDomaine;
 use App\Models\Mediatheque;
+use App\Models\Projet;
 use App\Models\Rapport;
+use App\Models\Realisation;
 use App\Models\SousDomaine;
 use Illuminate\Http\Request;
 use Spatie\FlareClient\View;
@@ -113,5 +115,35 @@ class PageController extends Controller
     {
         $collection = Mediatheque::all();
         return view('pages.mediatheque', compact('collection'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function imageSousDomaine(string $id)
+    {
+        $finds = SousDomaine::find($id);
+        $collection = ImageDomaine::where('sous_domaines_id', '=', $id)->get();
+        return view('pages.imageSousDomaine', compact('finds', 'collection'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function projetSousDomaine(string $id)
+    {
+        $finds = SousDomaine::find($id);
+        $collection = Projet::where('sous_domaines_id', '=', $id)->get();
+        return view('pages.projetSousDomaine', compact('finds', 'collection'));
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function realisationSousDomaine(string $id)
+    {
+        $finds = SousDomaine::find($id);
+        $collection = Realisation::where('sous_domaines_id', '=', $id)->get();
+        return view('pages.realisationSousDomaine', compact('finds', 'collection'));
     }
 }
