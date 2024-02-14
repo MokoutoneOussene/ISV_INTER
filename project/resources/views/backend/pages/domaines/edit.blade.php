@@ -29,11 +29,11 @@
 
                 <div class="col-lg-12 col-md-12 mb-3">
                     <label for="inputAddress" class="form-label">Contenu</label>
-                    <textarea name="contenu" value="{{$finds->contenu}}" id="taskarea" cols="30" rows="5" class="form-control"></textarea>
+                    <textarea name="contenu" value="{{$finds->contenu}}" id="taskarea" cols="30" rows="5" class="form-control">{!! $finds->contenu !!}</textarea>
                 </div>
 
                 <div class="">
-                    <button type="submit" class="btn btn-dark">Enregistrer</button>
+                    <button type="submit" class="btn btn-dark">Modifier</button>
                     <button type="reset" class="btn btn-danger">Annuler</button>
                 </div>
             </form><!-- Vertical Form -->

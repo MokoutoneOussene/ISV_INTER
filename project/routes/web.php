@@ -47,8 +47,8 @@ Route::get('detailDomaine/{id}', [PageController::class, 'findDomaine']);
 Route::get('supprimer_domaine/{id}', [DomaineController::class, 'destroy']);
 
 Route::resource('gestion_Sous_domaines', SousDomaineController::class);
-
 Route::get('detailSousDomaine/{id}', [PageController::class, 'findSousDomaine']);
+Route::get('supprimer_sousDomaine/{id}', [SousDomaineController::class, 'destroy']);
 
 Route::get('image_Sous_Domaine/{id}', [PageController::class, 'imageSousDomaine']);
 

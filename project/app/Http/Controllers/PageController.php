@@ -72,7 +72,7 @@ class PageController extends Controller
     public function findSousDomaine(string $id)
     {
         $finds = SousDomaine::find($id);
-        $collection = ImageDomaine::where('sous_domaines_id', '=', $id)->get();
+        $collection = ImageDomaine::where('sous_domaines_id', '=', $id)->paginate(2);
         return view('pages.findSousDomaine', compact('finds', 'collection'));
     }
 

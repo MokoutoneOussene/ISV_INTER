@@ -29,7 +29,7 @@
                                         <th scope="row">{{ $list->id }}</th>
                                         <td>{{ $list->libelle }}</td>
                                         <td class="text-danger">{{ $list->Domaine->libelle }}</td>
-                                        <td><a class="btn btn-success" href="{{ url('detail_demande', [$list->id]) }}"><i class="bi bi-eye"></i></a></td>
+                                        <td><a class="btn btn-success" href="{{ route ('gestion_Sous_domaines.show', [$list->id]) }}"><i class="bi bi-eye"></i></a></td>
                                         <td>
                                             <div class="dropdown">
                                                 <button class="btn dropdown-toggle w-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,10 +37,10 @@
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                                     <li>
-                                                        <a class="dropdown-item" href="">Editer</a>
+                                                        <a class="dropdown-item" href="{{ route ('gestion_Sous_domaines.edit', [$list->id]) }}">Editer</a>
                                                     </li>
                                                     <li>
-                                                        <a class="dropdown-item" href="">Supprimer</a>
+                                                        <a class="dropdown-item" href="{{ url ('supprimer_sousDomaine/' .$list->id) }}">Supprimer</a>
                                                     </li>
                                                 </ul>
                                             </div>

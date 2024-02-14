@@ -55,7 +55,9 @@ class SousDomaineController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $finds = SousDomaine::find($id);
+        $listes = Domaine::all();
+        return view('backend.pages.sousDomaine.edit', compact('finds', 'listes'));
     }
 
     /**
@@ -63,7 +65,14 @@ class SousDomaineController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $sousDomaine = SousDomaine::find($id);
+        $sousDomaine->update([
+            'libelle' => $request->libelle,
+            'image' => $request->image->store('images', 'public'),
+            'domaines_id' => $request->domaines_id,
+            'contenu' => $request->contenu,
+        ]);
+        return redirect()->route('gestion_Sous_domaines.index')->with('status', 'Sous domaines modifié avec succès!');
     }
 
     /**
@@ -71,6 +80,9 @@ class SousDomaineController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $sousDomaines = SousDomaine::find($id);
+        $sousDomaines->delete();
+
+        return redirect()->route('gestion_Sous_domaines.index');
     }
 }

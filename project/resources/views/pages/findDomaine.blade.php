@@ -12,7 +12,6 @@
                             <img src="{{ asset('storage') . '/' . $finds->carte }}" style="width: 100%;" alt="cartes"
                                 class="img-fluid">
                         </a>
-                        <h3>{{ $finds->politique }}</h3>
                         <p>{!! $finds->contenu !!}</p>
                         <img src="{{ asset('assets/img/signature.png') }}" alt="tableau 1" class="img-fluid">
                     </div>
